@@ -186,8 +186,8 @@ class DepotMiddleware(object):
             return self.app(environ, start_response)
 
         
-        path = full_path.rsplit('/', 2)
-        if len(path) and not path[0]:
+        path = full_path.split('/')
+        if len(parts) >= 3 and parts[0] == '':
             path = path[1:]
 
 
